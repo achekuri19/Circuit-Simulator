@@ -1,0 +1,4 @@
+in r17 PORTA
+in r18 PORTB
+and r18 r17
+out PORTC r18

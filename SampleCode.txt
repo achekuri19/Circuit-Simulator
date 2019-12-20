@@ -1,0 +1,5 @@
+in r16 PORTA
+mov r17 r16
+ldi r16 0x1f
+or r16 r17
+out PORTB r16

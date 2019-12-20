@@ -1,0 +1,60 @@
+Project Description [5 pts]: The name of the term project and a short description of what it will be.
+
+This term project's name is "Circuit Tutorials". This project will simulate basic circuits (voltage, resistor, inductor, capacitor) and tell the user
+how they can construct the circuit on the breadboard. The simulator will also simulate 8-bit microcontrollers that run assembly code.
+
+Competitive Analysis [5 pts]: A 1-2 paragraph analysis of similar projects you've seen online, and how your project will be similar or different to those.
+
+One project that is quite similar is an online circuit simulator that I use to verify I have the correct answers in electrical engineering assignments. 
+It's similar in the sense that it also simulates circuits, but it's different because it does not let you upload assembly code to a microcontroller and
+it does not provide instructions on how to construct a circuit. Link:
+https://www.falstad.com/circuit/
+
+Another similar product is CircuitLab (https://www.circuitlab.com/workbench/). This is similar in that it also simulates current/voltage in circuits, but
+it goes into more depth in terms of componenets used. The website also provides tutorials on how the circuits work, but my product will not do that. 
+
+Structural Plan [5 pts]: A structural plan for how the finalized project will be organized in different functions, files and/or objects.
+
+Components: All circuit components (resistors, batteries, inductors, capacitors,etc.) will be represented as subclasses of the Component class, which is 
+defined by two voltage nodes.
+
+Circuit: All the components will be stored in a Circuit object, which will house functions that interpret how the components are arranged
+
+Tkinter App: The main Tkinter GUI will consist of a canvas that has "snap grid points" a.k.a points where it's as if your mouse is at the location of the
+nearest lattice point. That way, the circuit will display themselves in a grid-like pattern that is more organized and easy to assemble. There will be a
+Circuit object that is an attribute of the app (app.circuit = Circuit()).
+
+Algorithmic Plan [5 pts]: A detailed algorithmic plan for how you will approach the trickiest part of the project.
+
+The most difficult algorithmic part is sorting all the components on the board into features that are in series or in parellel, especially since there
+are parts that can be in parallel to subcomponents in series with subcomponents in parallel, etc. There can be many levels of depth in series and in 
+parallel. Once it is determined what is in series with what and what is in parallel with what, finding all the voltages/currents at each node is not too 
+difficult. I plan on solving this (in fact, I already have solved this) by creating functions in the Circuit class that find all components in parallel
+and groups them in a subclass of Component called ParallelCombo and finds all components in series and groups them in a subclass of Component called 
+SeriesCombo. This is repeated until there are no more parallel or series combinations left to make.
+
+Timeline Plan [5 pts]: A timeline for when you intend to complete the major features of the project.
+
+11/20: Figure out how to categorize everything as in series or in parallel.
+11/21: Add grounding and capacitors.
+11/22: Add inductors, begin work on GUI
+11/24: Finish GUI to drag and drop components into canvas.
+11/26: Print instructions to construct the circuit accurately.
+11/28: Add ability to graph voltage over time of components (esp. with AC circuits)
+12/01: Add NAND, NOR gates
+12/03: If time permits, add something where if you draw it in Tkinter, it predicts what component you're drawing and adds it to the circuit.
+
+Version Control Plan [3 pts]: A short description and image demonstrating how you are using version control to back up your code. 
+
+Github repo, see it here: https://github.com/achekuri19/Term-Project
+
+Module List [2 pts]: No external modules
+
+TP3 Update: I never got around to adding the part where you're given step-by-step
+instructions on how to construct the circuit on a breadboard. However, I was able to 
+simulate microprocessors accurately. I was unable to add capacitors and inductors. 
+I added the feature of a "microprocessor maker" where you can add your own 
+microprocessors. The biggest change, though, is that I completely revamped the backend
+to support one-sided voltage sources instead of two. This is because superposition
+of AC voltage sources is much more simple with this setup. 
+
