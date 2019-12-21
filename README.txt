@@ -18,7 +18,7 @@ There are other commands such as:
 's': Changes the mode to add an oscilloscope
 
 Currently, the only assembly commands the simulator can handle are:
-and, or, ldi, in and out
+and, or, ldi, in, out, mov and lsr
 
 When creating a new microprocessor, click on the giant '+' on the side of the screen.
 The # of pins must be between 18 and 76
